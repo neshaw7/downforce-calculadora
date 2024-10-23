@@ -1,22 +1,68 @@
-function toggleCheck(checkbox) {
-    if (checkbox.checked) {
-        checkbox.style.backgroundColor = "#4CAF50"; // Cor quando marcado
-    } else {
-        checkbox.style.backgroundColor = "white"; // Volta ao branco quando desmarcado
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementos de entrada
+    const corridaTotalInput = document.getElementById('corrida-total');
+    const apostasTotalInput = document.getElementById('apostas-total');
+    const leilaoTotalInput = document.getElementById('leilao-total');
+    const pontuacaoFinalInput = document.getElementById('pontuacao-final');
+    const calcularButton = document.getElementById('calcular-pontuacao');
+
+    // Função para calcular a pontuação final
+    function calcularPontuacaoFinal() {
+        const corridaTotal = parseFloat(corridaTotalInput.value) || 0;
+        const apostasTotal = parseFloat(apostasTotalInput.value) || 0;
+        const leilaoTotal = parseFloat(leilaoTotalInput.value) || 0;
+
+        const pontuacaoFinal = corridaTotal + apostasTotal - leilaoTotal;
+        pontuacaoFinalInput.value = Math.round(pontuacaoFinal); // Removendo casas decimais
     }
-}
 
-function calculateScore() {
-    // Pegue os valores de leilão e as apostas como antes
-    let auctionBlack = parseInt(document.getElementById('auction-black').value) || 0;
-    let auctionBlue = parseInt(document.getElementById('auction-blue').value) || 0;
-    let auctionGreen = parseInt(document.getElementById('auction-green').value) || 0;
-    let auctionYellow = parseInt(document.getElementById('auction-yellow').value) || 0;
-    let auctionOrange = parseInt(document.getElementById('auction-orange').value) || 0;
-    let auctionRed = parseInt(document.getElementById('auction-red').value) || 0;
+    // Atualizar o cálculo ao clicar no botão
+    calcularButton.addEventListener('click', calcularPontuacaoFinal);
 
-    // Lógica para calcular pontuações vai aqui
+    // Monitorar os campos de "Valor Pago no Leilão" na tabela dos carros
+    const leilaoInputs = document.querySelectorAll('.score-sheet input[type="number"]');
 
-    let totalScore = auctionBlack + auctionBlue + auctionGreen + auctionYellow + auctionOrange + auctionRed;
-    document.getElementById('final-score').innerText = `${totalScore}M`;
-}
+    // Função para calcular o total do leilão
+    function calcularLeilaoTotal() {
+        let leilaoTotal = 0;
+
+        // Somar todos os valores dos inputs de "Valor Pago no Leilão"
+        leilaoInputs.forEach(input => {
+            leilaoTotal += parseFloat(input.value) || 0;
+        });
+
+        // Atualizar o campo "Gasto Total do Leilão"
+        leilaoTotalInput.value = Math.round(leilaoTotal); // Removendo casas decimais
+
+        // Atualizar a pontuação final quando o valor do leilão mudar
+        calcularPontuacaoFinal();
+    }
+
+    // Monitorar mudanças em cada campo de "Valor Pago no Leilão"
+    leilaoInputs.forEach(input => {
+        input.addEventListener('input', calcularLeilaoTotal);
+    });
+
+    // Função para permitir apenas um checkbox por coluna
+    function allowSingleCheckboxPerColumn(columnClass) {
+        const checkboxes = document.querySelectorAll(`.${columnClass} input[type="checkbox"]`);
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    // Desmarca todos os outros checkboxes na mesma coluna
+                    checkboxes.forEach(otherCheckbox => {
+                        if (otherCheckbox !== this) {
+                            otherCheckbox.checked = false;
+                        }
+                    });
+                }
+            });
+        });
+    }
+
+    // Aplicar a função para cada coluna de apostas
+    allowSingleCheckboxPerColumn('aposta1');
+    allowSingleCheckboxPerColumn('aposta2');
+    allowSingleCheckboxPerColumn('aposta3');
+});

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,65 +22,100 @@
                 <tr>
                     <th>CARRO</th>
                     <th>VALOR PAGO NO LEILÃO (MI)</th>
-                    <th>APOSTA 1</th>
-                    <th>APOSTA 2</th>
-                    <th>APOSTA 3</th>
+                    <th class="aposta1">APOSTA 1</th>
+                    <th class="aposta2">APOSTA 2</th>
+                    <th class="aposta3">APOSTA 3</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td class="car-cell"><img src="img/car-preto.png" alt="Carro Preto" class="car-image"> <span>PRETO</span></td>
                     <td><input type="number" id="auction-black"></td>
-                    <td><input type="checkbox" id="bet1-black" onclick="toggleCheck(this)"></td>
-                    <td><input type="checkbox" id="bet2-black" onclick="toggleCheck(this)"></td>
-                    <td><input type="checkbox" id="bet3-black" onclick="toggleCheck(this)"></td>
+                    <td class="aposta1"><input type="checkbox" id="bet1-black" onclick="toggleCheck(this)"></td>
+                    <td class="aposta2"><input type="checkbox" id="bet2-black" onclick="toggleCheck(this)"></td>
+                    <td class="aposta3"><input type="checkbox" id="bet3-black" onclick="toggleCheck(this)"></td>
                 </tr>
                 <tr>
                     <td class="car-cell"><img src="img/car-azul.png" alt="Carro Azul" class="car-image"> <span>AZUL</span></td>
                     <td><input type="number" id="auction-blue"></td>
-                    <td><input type="checkbox" id="bet1-blue" onclick="toggleCheck(this)"></td>
-                    <td><input type="checkbox" id="bet2-blue" onclick="toggleCheck(this)"></td>
-                    <td><input type="checkbox" id="bet3-blue" onclick="toggleCheck(this)"></td>
+                    <td class="aposta1"><input type="checkbox" id="bet1-blue" onclick="toggleCheck(this)"></td>
+                    <td class="aposta2"><input type="checkbox" id="bet2-blue" onclick="toggleCheck(this)"></td>
+                    <td class="aposta3"><input type="checkbox" id="bet3-blue" onclick="toggleCheck(this)"></td>
                 </tr>
                 <tr>
                     <td class="car-cell"><img src="img/car-verde.png" alt="Carro Verde" class="car-image"> <span>VERDE</span></td>
                     <td><input type="number" id="auction-green"></td>
-                    <td><input type="checkbox" id="bet1-green" onclick="toggleCheck(this)"></td>
-                    <td><input type="checkbox" id="bet2-green" onclick="toggleCheck(this)"></td>
-                    <td><input type="checkbox" id="bet3-green" onclick="toggleCheck(this)"></td>
+                    <td class="aposta1"><input type="checkbox" id="bet1-green" onclick="toggleCheck(this)"></td>
+                    <td class="aposta2"><input type="checkbox" id="bet2-green" onclick="toggleCheck(this)"></td>
+                    <td class="aposta3"><input type="checkbox" id="bet3-green" onclick="toggleCheck(this)"></td>
                 </tr>
                 <tr>
                     <td class="car-cell"><img src="img/car-amarelo.png" alt="Carro Amarelo" class="car-image"> <span>AMARELO</span></td>
                     <td><input type="number" id="auction-yellow"></td>
-                    <td><input type="checkbox" id="bet1-yellow" onclick="toggleCheck(this)"></td>
-                    <td><input type="checkbox" id="bet2-yellow" onclick="toggleCheck(this)"></td>
-                    <td><input type="checkbox" id="bet3-yellow" onclick="toggleCheck(this)"></td>
+                    <td class="aposta1"><input type="checkbox" id="bet1-yellow" onclick="toggleCheck(this)"></td>
+                    <td class="aposta2"><input type="checkbox" id="bet2-yellow" onclick="toggleCheck(this)"></td>
+                    <td class="aposta3"><input type="checkbox" id="bet3-yellow" onclick="toggleCheck(this)"></td>
                 </tr>
                 <tr>
                     <td class="car-cell"><img src="img/car-laranja.png" alt="Carro Laranja" class="car-image"> <span>LARANJA</span></td>
                     <td><input type="number" id="auction-orange"></td>
-                    <td><input type="checkbox" id="bet1-orange" onclick="toggleCheck(this)"></td>
-                    <td><input type="checkbox" id="bet2-orange" onclick="toggleCheck(this)"></td>
-                    <td><input type="checkbox" id="bet3-orange" onclick="toggleCheck(this)"></td>
+                    <td class="aposta1"><input type="checkbox" id="bet1-orange" onclick="toggleCheck(this)"></td>
+                    <td class="aposta2"><input type="checkbox" id="bet2-orange" onclick="toggleCheck(this)"></td>
+                    <td class="aposta3"><input type="checkbox" id="bet3-orange" onclick="toggleCheck(this)"></td>
                 </tr>
                 <tr>
                     <td class="car-cell"><img src="img/car-vermelho.png" alt="Carro Vermelho" class="car-image"> <span>VERMELHO</span></td>
                     <td><input type="number" id="auction-red"></td>
-                    <td><input type="checkbox" id="bet1-red" onclick="toggleCheck(this)"></td>
-                    <td><input type="checkbox" id="bet2-red" onclick="toggleCheck(this)"></td>
-                    <td><input type="checkbox" id="bet3-red" onclick="toggleCheck(this)"></td>
+                    <td class="aposta1"><input type="checkbox" id="bet1-red" onclick="toggleCheck(this)"></td>
+                    <td class="aposta2"><input type="checkbox" id="bet2-red" onclick="toggleCheck(this)"></td>
+                    <td class="aposta3"><input type="checkbox" id="bet3-red" onclick="toggleCheck(this)"></td>
                 </tr>
             </tbody>
         </table>
-
-        <button onclick="calculateScore()">Calcular Pontuação</button>
-
-        <div id="result">
-            <p>Pontuação Final: <span id="final-score"></span></p>
-        </div>
     </div>
 
-            <!-- Tabelas informativas na parte inferior -->
+    <!-- Novo contêiner para cálculo final abaixo da score-sheet -->
+    <div class="calculation-container">
+        <h3>PONTUAÇÃO FINAL</h3>
+        <div class="calculation-grid">
+            <!-- Campo de Valor ganho nas Corridas -->
+            <div class="calculation-item">
+                <input type="number" id="corrida-total" placeholder="0" />
+                <label for="corrida-total">Ganho Total na Corrida</label>
+            </div>
+
+            <!-- Sinal de soma -->
+            <div class="calculation-operator">+</div>
+
+            <!-- Campo de Pagamento das Apostas -->
+            <div class="calculation-item">
+                <input type="number" id="apostas-total" placeholder="0" />
+                <label for="apostas-total">Ganho Total nas Apostas</label>
+            </div>
+
+            <!-- Sinal de subtração -->
+            <div class="calculation-operator">-</div>
+
+            <!-- Campo de Valor Pago no Leilão (apenas leitura) -->
+            <div class="calculation-item readonly">
+                <input type="number" id="leilao-total" placeholder="0" readonly />
+                <label for="leilao-total">Gasto Total do Leilão</label>
+            </div>
+
+            <!-- Sinal de igual -->
+            <div class="calculation-operator">=</div>
+
+            <!-- Campo de Pontuação Final -->
+            <div class="calculation-item">
+                <input type="number" id="pontuacao-final" placeholder="0" readonly />
+                <label for="pontuacao-final">Ganho Total</label>
+            </div>
+        </div>
+
+        <button id="calcular-pontuacao">Calcular Pontuação</button>
+    </div>
+
+    <!-- Tabelas informativas na parte inferior -->
     <div class="informative-tables">
         <!-- Tabela de Pagamento das Apostas -->
         <table class="informative-table">
@@ -138,7 +173,6 @@
             </tbody>
         </table>
     </div>
-
 
     <script src="script.js"></script>
 </body>
