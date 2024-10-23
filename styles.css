@@ -1,0 +1,213 @@
+/* Definir o layout como responsivo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo para o contêiner principal */
+.score-sheet {
+    max-width: 500px; /* Ajuste para um tamanho compacto */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve ao redor do contêiner */
+}
+
+/* Estilo para a tabela */
+table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 0 15px; /* Espaço entre as linhas da tabela */
+    font-size: 14px;
+}
+
+/* Estilo para as colunas da tabela */
+th, td {
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Fundo alternado para as linhas */
+tbody tr:nth-child(odd) {
+    background-color: #f3f3f3; /* Cor alternada para linhas ímpares */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ffffff; /* Cor para linhas pares */
+}
+
+/* Adicionar efeito de hover nas linhas */
+tbody tr:hover {
+    background-color: #e0e0e0; /* Fundo cinza claro ao passar o mouse */
+}
+
+/* Estilo para os cabeçalhos */
+th {
+    background-color: #5f5f5f; /* Cor de destaque para o cabeçalho */
+    color: white;
+    padding: 10px;
+    border-radius: 0px;
+}
+
+/* Estilo para as células sem bordas */
+td {
+    font-weight: normal; 
+    vertical-align: middle;
+}
+
+/* Flexbox para alinhar as imagens dos carros e seus nomes */
+.car-cell {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 5px;
+    white-space: nowrap;
+}
+
+/* Tamanho da imagem dos carros */
+.car-image {
+    width: 30px; 
+    height: auto;
+    margin-right: 8px;
+}
+
+/* Estilo para inputs */
+input[type="text"], input[type="number"] {
+    padding: 8px;
+    width: 80%;
+    font-size: 14px;
+    border: 1px solid #bbb; /* Aumenta o contraste da borda */
+    border-radius: 6px;
+    background-color: #fafafa; /* Cor de fundo suave */
+    text-align: center;
+    transition: border-color 0.3s ease; /* Suave transição de cor na borda */
+}
+
+/* Efeito ao focar nos campos de entrada */
+input[type="text"]:focus, input[type="number"]:focus {
+    border-color: #4CAF50; /* Bordas verdes ao focar */
+    outline: none;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+/* Botão */
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para o resultado */
+#result {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 480px) {
+    .score-sheet {
+        max-width: 100%;
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    th, td {
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    input[type="text"], input[type="number"] {
+        width: 90%;
+        font-size: 12px;
+    }
+
+    button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    #result {
+        font-size: 14px;
+    }
+}
+
+/* Estilo para as tabelas informativas */
+.informative-tables {
+    margin-top: 20px;
+    max-width: 420px; /* Garantir que acompanhe a largura do contêiner principal */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilo das tabelas de informação */
+.informative-table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+.informative-table th {
+    background-color: #5f5f5f; /* Cabeçalho com fundo cinza */
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 0px;
+}
+
+.informative-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Fundo alternado para linhas */
+.informative-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.informative-table tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+/* Destaque para as posições na tabela de Pagamento das Corridas */
+.informative-table td.position {
+    background-color: #e0e0e0; /* Cor cinza clara para as posições */
+    font-weight: bold; /* Deixar o texto em negrito para maior contraste */
+}
+
+/* Responsividade para as tabelas */
+@media (max-width: 480px) {
+    .informative-tables {
+        max-width: 100%;
+    }
+
+    .informative-table th, .informative-table td {
+        font-size: 12px;
+        padding: 8px;
+    }
+}

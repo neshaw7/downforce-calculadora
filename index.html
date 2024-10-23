@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DownForce - Calculadora de Pontos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Logo -->
+    <div class="logo-container">
+        <img src="_img/df_logo.png" alt="Downforce Logo" class="logo">
+    </div>
+
+    <div class="score-sheet">
+        <label for="player-name">NOME DO PILOTO:</label>
+        <input type="text" id="player-name" placeholder="Digite o nome do piloto">
+
+        <!-- Tabela com imagens e nomes dos carros -->
+        <table>
+            <thead>
+                <tr>
+                    <th>CARRO</th>
+                    <th>VALOR PAGO NO LEILÃO (MI)</th>
+                    <th>APOSTA 1</th>
+                    <th>APOSTA 2</th>
+                    <th>APOSTA 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="car-cell"><img src="_img/car-preto.png" alt="Carro Preto" class="car-image"> <span>PRETO</span></td>
+                    <td><input type="number" id="auction-black"></td>
+                    <td><input type="checkbox" id="bet1-black" onclick="toggleCheck(this)"></td>
+                    <td><input type="checkbox" id="bet2-black" onclick="toggleCheck(this)"></td>
+                    <td><input type="checkbox" id="bet3-black" onclick="toggleCheck(this)"></td>
+                </tr>
+                <tr>
+                    <td class="car-cell"><img src="_img/car-azul.png" alt="Carro Azul" class="car-image"> <span>AZUL</span></td>
+                    <td><input type="number" id="auction-blue"></td>
+                    <td><input type="checkbox" id="bet1-blue" onclick="toggleCheck(this)"></td>
+                    <td><input type="checkbox" id="bet2-blue" onclick="toggleCheck(this)"></td>
+                    <td><input type="checkbox" id="bet3-blue" onclick="toggleCheck(this)"></td>
+                </tr>
+                <tr>
+                    <td class="car-cell"><img src="_img/car-verde.png" alt="Carro Verde" class="car-image"> <span>VERDE</span></td>
+                    <td><input type="number" id="auction-green"></td>
+                    <td><input type="checkbox" id="bet1-green" onclick="toggleCheck(this)"></td>
+                    <td><input type="checkbox" id="bet2-green" onclick="toggleCheck(this)"></td>
+                    <td><input type="checkbox" id="bet3-green" onclick="toggleCheck(this)"></td>
+                </tr>
+                <tr>
+                    <td class="car-cell"><img src="_img/car-amarelo.png" alt="Carro Amarelo" class="car-image"> <span>AMARELO</span></td>
+                    <td><input type="number" id="auction-yellow"></td>
+                    <td><input type="checkbox" id="bet1-yellow" onclick="toggleCheck(this)"></td>
+                    <td><input type="checkbox" id="bet2-yellow" onclick="toggleCheck(this)"></td>
+                    <td><input type="checkbox" id="bet3-yellow" onclick="toggleCheck(this)"></td>
+                </tr>
+                <tr>
+                    <td class="car-cell"><img src="_img/car-laranja.png" alt="Carro Laranja" class="car-image"> <span>LARANJA</span></td>
+                    <td><input type="number" id="auction-orange"></td>
+                    <td><input type="checkbox" id="bet1-orange" onclick="toggleCheck(this)"></td>
+                    <td><input type="checkbox" id="bet2-orange" onclick="toggleCheck(this)"></td>
+                    <td><input type="checkbox" id="bet3-orange" onclick="toggleCheck(this)"></td>
+                </tr>
+                <tr>
+                    <td class="car-cell"><img src="_img/car-vermelho.png" alt="Carro Vermelho" class="car-image"> <span>VERMELHO</span></td>
+                    <td><input type="number" id="auction-red"></td>
+                    <td><input type="checkbox" id="bet1-red" onclick="toggleCheck(this)"></td>
+                    <td><input type="checkbox" id="bet2-red" onclick="toggleCheck(this)"></td>
+                    <td><input type="checkbox" id="bet3-red" onclick="toggleCheck(this)"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button onclick="calculateScore()">Calcular Pontuação</button>
+
+        <div id="result">
+            <p>Pontuação Final: <span id="final-score"></span></p>
+        </div>
+    </div>
+
+            <!-- Tabelas informativas na parte inferior -->
+    <div class="informative-tables">
+        <!-- Tabela de Pagamento das Apostas -->
+        <table class="informative-table">
+            <thead>
+                <tr>
+                    <th colspan="4">PAGAMENTO DAS APOSTAS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="position">1°</td>
+                    <td>$9 MI</td>
+                    <td>$6 MI</td>
+                    <td>$3 MI</td>
+                </tr>
+                <tr>
+                    <td class="position">2°</td>
+                    <td>$6 MI</td>
+                    <td>$4 MI</td>
+                    <td>$2 MI</td>
+                </tr>
+                <tr>
+                    <td class="position">3°</td>
+                    <td>$3 MI</td>
+                    <td>$2 MI</td>
+                    <td>$1 MI</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Tabela de Pagamento das Corridas -->
+        <table class="informative-table">
+            <thead>
+                <tr>
+                    <th colspan="6">PAGAMENTO DAS CORRIDAS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="position">1°</td>
+                    <td>$12 MI</td>
+                    <td class="position">2°</td>
+                    <td>9 MI</td>
+                    <td class="position">3°</td>
+                    <td>6 MI</td>
+                </tr>
+                <tr>
+                    <td class="position">4°</td>
+                    <td>4 MI</td>
+                    <td class="position">5°</td>
+                    <td>2 MI</td>
+                    <td class="position">6°</td>
+                    <td>0 MI</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
