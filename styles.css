@@ -200,17 +200,7 @@ button:hover {
     font-weight: bold; /* Deixar o texto em negrito para maior contraste */
 }
 
-/* Responsividade para as tabelas */
-@media (max-width: 480px) {
-    .informative-tables {
-        max-width: 100%;
-    }
 
-    .informative-table th, .informative-table td {
-        font-size: 12px;
-        padding: 8px;
-    }
-}
 
 /* Estilo do contêiner de cálculo final */
 .calculation-container {
@@ -221,15 +211,17 @@ button:hover {
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    box-sizing: border-box; /* Ajustar para evitar transbordamento */
+    overflow: hidden; /* Impedir que conteúdo extra saia do contêiner */
 }
 
 /* Grid layout ajustado para os campos de cálculo */
 .calculation-grid {
     display: grid;
-    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr; /* Layout das colunas */
-    gap: 5px; /* Diminuir o espaçamento entre os elementos */
+    grid-template-columns: repeat(7, 1fr); /* 7 colunas no desktop */
+    gap: 10px; /* Espaçamento entre os elementos */
     align-items: center;
-    justify-items: center; /* Centralizar os itens no grid */
+    justify-items: center;
     margin-top: 10px;
 }
 
@@ -285,3 +277,51 @@ button:hover {
     background-color: #45a049;
 }
 
+/* Responsividade para as tabelas */
+@media (max-width: 480px) {
+    .informative-tables {
+        max-width: 100%;
+    }
+
+    .informative-table th, .informative-table td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .calculation-grid {
+        grid-template-columns: 1fr; /* Ajuste para uma coluna em telas pequenas */
+        gap: 10px;
+        justify-items: center;
+    }
+
+    /* Operadores centralizados no celular */
+    .calculation-operator {
+        grid-column: span 1;
+        font-size: 18px;
+        margin: 10px 0; /* Espaçamento para diferenciar */
+    }
+
+    /* Ajuste para itens ocuparem a largura total no celular */
+    .calculation-item {
+        grid-column: span 1;
+        width: 100%;
+    }
+
+    #calcular-pontuacao {
+        grid-column: span 1;
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+.calculation-item input {
+    width: 100%; /* Ajusta os inputs para ocupar toda a largura do contêiner */
+    max-width: 100px; /* Limita a largura máxima em desktops */
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fafafa;
+    text-align: center;
+    margin-bottom: 5px;
+}
