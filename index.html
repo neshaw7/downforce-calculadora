@@ -12,6 +12,12 @@
         <img src="img/df_logo.png" alt="Downforce Logo" class="logo">
     </div>
 
+    <!-- <video autoplay loop muted playsinline id="bg-video">
+        <source src="img/car-bg.mp4" type="video/mp4">
+        Seu navegador não suporta a tag de vídeo.
+    </video> -->
+    
+
     <div class="score-sheet">
         <label for="player-name">NOME DO PILOTO:</label>
         <input type="text" id="player-name" placeholder="Digite o nome do piloto">
@@ -80,7 +86,7 @@
         <div class="calculation-grid">
             <!-- Campo de Valor ganho nas Corridas -->
             <div class="calculation-item">
-                <input type="number" id="corrida-total" placeholder="0" />
+                <input type="number" id="corrida-total" placeholder="0" readonly/>
                 <label for="corrida-total">Ganho Total na Corrida</label>
             </div>
 
@@ -89,7 +95,7 @@
 
             <!-- Campo de Pagamento das Apostas -->
             <div class="calculation-item">
-                <input type="number" id="apostas-total" placeholder="0" />
+                <input type="number" id="apostas-total" placeholder="0" readonly/>
                 <label for="apostas-total">Ganho Total nas Apostas</label>
             </div>
 
@@ -112,7 +118,46 @@
             </div>
         </div>
 
-        <button id="calcular-pontuacao">Calcular Pontuação</button>
+        <button id="calcular-pontuacao">
+            <img src="img/calcular-pontos.png" alt="Calcular Pontuação" class="button-text-img">
+            <!-- Calcular Pontuação -->
+        </button>
+
+        <!-- Popup Modal -->
+    <div id="positionModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Insira a Posição Final dos Carros</h2>
+            <form id="positionForm">
+                <div class="car-position">
+                    <label for="position-black">Carro Preto:</label>
+                    <input type="number" id="position-black" min="1" max="6" placeholder="Posição (1-6)">
+                </div>
+                <div class="car-position">
+                    <label for="position-blue">Carro Azul:</label>
+                    <input type="number" id="position-blue" min="1" max="6" placeholder="Posição (1-6)">
+                </div>
+                <div class="car-position">
+                    <label for="position-green">Carro Verde:</label>
+                    <input type="number" id="position-green" min="1" max="6" placeholder="Posição (1-6)">
+                </div>
+                <div class="car-position">
+                    <label for="position-yellow">Carro Amarelo:</label>
+                    <input type="number" id="position-yellow" min="1" max="6" placeholder="Posição (1-6)">
+                </div>
+                <div class="car-position">
+                    <label for="position-orange">Carro Laranja:</label>
+                    <input type="number" id="position-orange" min="1" max="6" placeholder="Posição (1-6)">
+                </div>
+                <div class="car-position">
+                    <label for="position-red">Carro Vermelho:</label>
+                    <input type="number" id="position-red" min="1" max="6" placeholder="Posição (1-6)">
+                </div>
+                <button type="button" id="submitPosition">Calcular Resultado</button>
+                <div id="error-message" style="display: none; color: red; margin-top: 10px;"></div>
+            </form>
+        </div>
+    </div>
     </div>
 
     <!-- Tabelas informativas na parte inferior -->
