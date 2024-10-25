@@ -10,12 +10,12 @@ body {
 
 /* Estilo para o contêiner principal */
 .score-sheet {
-    max-width: 500px; /* Ajuste para um tamanho compacto */
+    max-width: 500px;
     margin: 0 auto;
     padding: 20px;
     background-color: white;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve ao redor do contêiner */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilo para a tabela */
@@ -23,7 +23,7 @@ table {
     width: 100%;
     margin: 0 auto;
     border-collapse: separate;
-    border-spacing: 0 15px; /* Espaço entre as linhas da tabela */
+    border-spacing: 0 15px;
     font-size: 14px;
 }
 
@@ -36,30 +36,23 @@ th, td {
 
 /* Fundo alternado para as linhas */
 tbody tr:nth-child(odd) {
-    background-color: #f3f3f3; /* Cor alternada para linhas ímpares */
+    background-color: #f3f3f3;
 }
 
 tbody tr:nth-child(even) {
-    background-color: #ffffff; /* Cor para linhas pares */
+    background-color: #ffffff;
 }
 
 /* Adicionar efeito de hover nas linhas */
 tbody tr:hover {
-    background-color: #e0e0e0; /* Fundo cinza claro ao passar o mouse */
+    background-color: #e0e0e0;
 }
 
 /* Estilo para os cabeçalhos */
 th {
-    background-color: #5f5f5f; /* Cor de destaque para o cabeçalho */
+    background-color: #5f5f5f;
     color: white;
     padding: 10px;
-    border-radius: 0px;
-}
-
-/* Estilo para as células sem bordas */
-td {
-    font-weight: normal; 
-    vertical-align: middle;
 }
 
 /* Flexbox para alinhar as imagens dos carros e seus nomes */
@@ -73,7 +66,7 @@ td {
 
 /* Tamanho da imagem dos carros */
 .car-image {
-    width: 30px; 
+    width: 30px;
     height: auto;
     margin-right: 8px;
 }
@@ -83,16 +76,16 @@ input[type="text"], input[type="number"] {
     padding: 8px;
     width: 80%;
     font-size: 14px;
-    border: 1px solid #bbb; /* Aumenta o contraste da borda */
+    border: 1px solid #bbb;
     border-radius: 6px;
-    background-color: #fafafa; /* Cor de fundo suave */
+    background-color: #fafafa;
     text-align: center;
-    transition: border-color 0.3s ease; /* Suave transição de cor na borda */
+    transition: border-color 0.3s ease;
 }
 
 /* Efeito ao focar nos campos de entrada */
 input[type="text"]:focus, input[type="number"]:focus {
-    border-color: #4CAF50; /* Bordas verdes ao focar */
+    border-color: #4CAF50;
     outline: none;
 }
 
@@ -101,7 +94,7 @@ input[type="checkbox"] {
     height: 20px;
 }
 
-/* Botão */
+/* Botão geral */
 button {
     padding: 12px 20px;
     font-size: 16px;
@@ -119,6 +112,24 @@ button:hover {
     background-color: #45a049;
 }
 
+/* Estilo para o botão de comprar */
+.comprar-button {
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    margin: 0 auto;
+}
+
+.comprar-button:hover {
+    background-color: #e68a00;
+}
+
 /* Estilo para o resultado */
 #result {
     margin-top: 20px;
@@ -126,7 +137,66 @@ button:hover {
     color: #333;
 }
 
+/* Estilo para o botão de reiniciar */
+#reset-button {
+    margin-top: 15px;
+    margin-bottom: 20px; /* Espaçamento abaixo do botão */
+    padding: 8px 15px; /* Reduz o espaçamento interno para diminuir a altura do botão */
+    width: 50%; /* Reduz a largura do botão */
+    font-size: 14px; /* Diminui o tamanho da fonte */
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#reset-button:hover {
+    background-color: #d32f2f;
+}
+
 /* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .calculation-container {
+        padding: 10px; /* Diminuir o padding do container */
+    }
+
+    .calculation-item {
+        margin-bottom: 10px; /* Reduzir o espaçamento vertical entre os itens */
+    }
+
+    .calculation-grid {
+        grid-template-columns: 1fr 20px 1fr 20px 1fr 20px 1fr; /* Ajustar a grade para ocupar menos espaço */
+        gap: 10px; /* Diminuir o espaço entre os elementos da grade */
+    }
+
+    .calculation-item input {
+        width: 80%; /* Diminuir a largura dos inputs */
+        font-size: 0.9em; /* Reduzir o tamanho da fonte dos inputs */
+        padding: 5px; /* Diminuir o padding dos inputs */
+    }
+
+    .calculation-operator {
+        font-size: 1.5em; /* Reduzir o tamanho dos operadores (+, -, =) */
+    }
+
+    h3 {
+        font-size: 1.2em; /* Reduzir o tamanho da fonte do título */
+        margin-bottom: 15px; /* Reduzir a margem inferior do título */
+    }
+
+    #calcular-pontuacao {
+        width: 100%;
+        padding: 10px; /* Diminuir o padding do botão */
+        margin-top: 15px; /* Reduzir a margem superior do botão */
+    }
+
+    .button-text-img {
+        max-width: 90%; /* Ajustar o tamanho da imagem do botão */
+    }
+}
+
 @media (max-width: 480px) {
     .score-sheet {
         max-width: 100%;
@@ -157,7 +227,7 @@ button:hover {
 /* Estilo para as tabelas informativas */
 .informative-tables {
     margin-top: 20px;
-    max-width: 420px; /* Garantir que acompanhe a largura do contêiner principal */
+    max-width: 420px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -170,12 +240,11 @@ button:hover {
 }
 
 .informative-table th {
-    background-color: #5f5f5f; /* Cabeçalho com fundo cinza */
+    background-color: #5f5f5f;
     color: white;
     padding: 10px;
     font-size: 14px;
     text-align: center;
-    border-radius: 0px;
 }
 
 .informative-table td {
@@ -196,30 +265,28 @@ button:hover {
 
 /* Destaque para as posições na tabela de Pagamento das Corridas */
 .informative-table td.position {
-    background-color: #e0e0e0; /* Cor cinza clara para as posições */
-    font-weight: bold; /* Deixar o texto em negrito para maior contraste */
+    background-color: #e0e0e0;
+    font-weight: bold;
 }
-
-
 
 /* Estilo do contêiner de cálculo final */
 .calculation-container {
-    max-width: 420px; /* Mesma largura da score-sheet */
+    max-width: 420px;
     margin: 20px auto;
     padding: 20px;
     background-color: white;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    box-sizing: border-box; /* Ajustar para evitar transbordamento */
-    overflow: hidden; /* Impedir que conteúdo extra saia do contêiner */
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 /* Grid layout ajustado para os campos de cálculo */
 .calculation-grid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr); /* 7 colunas no desktop */
-    gap: 10px; /* Espaçamento entre os elementos */
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
     align-items: center;
     justify-items: center;
     margin-top: 10px;
@@ -234,7 +301,7 @@ button:hover {
 }
 
 .calculation-item input {
-    width: 70px; /* Reduzindo a largura dos campos para caber no contêiner */
+    width: 70px;
     padding: 6px;
     font-size: 14px;
     border: 1px solid #ccc;
@@ -245,7 +312,7 @@ button:hover {
 }
 
 .calculation-item.readonly input {
-    background-color: #e0e0e0; /* Fundo cinza para campo não editável */
+    background-color: #e0e0e0;
     color: #333;
     border-color: #bbb;
 }
@@ -256,7 +323,7 @@ button:hover {
     font-weight: bold;
     color: #5f5f5f;
     text-align: center;
-    margin: 0 5px; /* Adicionar margem horizontal para espaçamento */
+    margin: 0 5px;
 }
 
 /* Estilo do botão de Calcular Pontuação */
@@ -268,7 +335,7 @@ button:hover {
     padding: 12px 20px;
     cursor: pointer;
     width: 100%;
-    height: 60px; /* Ajuste conforme necessário */
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -279,10 +346,10 @@ button:hover {
 }
 
 .button-text-img {
-    width: 100%; /* Ajuste conforme necessário */
+    width: 100%;
     height: auto;
-    max-width: 320px; /* Ajuste conforme necessário */
-    pointer-events: none; /* Para garantir que apenas o botão seja clicável */
+    max-width: 320px;
+    pointer-events: none;
 }
 
 #calcular-pontuacao:hover {
@@ -301,19 +368,17 @@ button:hover {
     }
 
     .calculation-grid {
-        grid-template-columns: 1fr; /* Ajuste para uma coluna em telas pequenas */
+        grid-template-columns: 1fr;
         gap: 10px;
         justify-items: center;
     }
 
-    /* Operadores centralizados no celular */
     .calculation-operator {
         grid-column: span 1;
         font-size: 18px;
-        margin: 10px 0; /* Espaçamento para diferenciar */
+        margin: 10px 0;
     }
 
-    /* Ajuste para itens ocuparem a largura total no celular */
     .calculation-item {
         grid-column: span 1;
         width: 100%;
@@ -326,21 +391,9 @@ button:hover {
     }
 }
 
-.calculation-item input {
-    width: 100%; /* Ajusta os inputs para ocupar toda a largura do contêiner */
-    max-width: 100px; /* Limita a largura máxima em desktops */
-    padding: 8px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background-color: #e0e0e0;
-    text-align: center;
-    margin-bottom: 5px;
-}
-
 /* Estilo do Popup Modal */
 .modal {
-    display: none; /* Escondido por padrão */
+    display: none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -348,7 +401,7 @@ button:hover {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo escurecido */
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
@@ -424,16 +477,26 @@ button:hover {
 .fade-out {
     animation: fadeOutBounce 0.6s ease forwards;
 }
-/* 
-#bg-video {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -1; /* Coloca o vídeo atrás de todo o conteúdo */
-    /*background-size: cover; */
-    /*object-fit: cover; /* Garante que o vídeo preencha todo o espaço 
-}*/
+
+/* Contêiner da linha da tabela para alinhar o botão e os checkboxes */
+.car-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espalhar os elementos uniformemente */
+    padding: 10px 0;
+}
+
+/* Estilo específico para a célula do botão comprar */
+.car-auction-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo para a mensagem de erro */
+#error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+}
